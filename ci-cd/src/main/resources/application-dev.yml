@@ -1,0 +1,42 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  devtools:
+    add-properties: true
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5431}/postgres
+    username: ${DATABASE_USERNAME:sa}
+    password: ${DATABASE_PASSWORD:12345}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  sendGrid:
+    apiKey: ${SENDGRID_API_KEY:DUMMY-SENDGRID-API-KEY}
+    fromEmail: ${SENDGRID_FROM_EMAIL:huypqse@gmail.com}
+    templateId: ${SENDGRID_TEMPLATE_ID:d-2116466afd0a438b90615184dd569e42}
+    verificationLink: ${SENDGRID_VERIFICATION_LINK:http://localhost:8080/user/confirm-email}
+
+# application-dev.yml
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    api-docs: backend-service
+    server: ${BACKEND_HOST:http://localhost:${server.port}}
+    title: Backend service
+    version: 1.0.0
+
+# Generate HMAC Authentication Code: https://www.devglan.com/online-tools/hmac-sha256-online
+jwt:
+  expiryMinutes: ${JWT_EXPIRY_MINUTES:60}
+  expiryDay: ${JWT_EXPIRY_DAY:14}
+  accessKey: ${JWT_ACCESS_KEY:IIwLeRIVsznVTPFEYmA6HiVVBrlKkKqC36OpWzqw8mk=}
+  refreshKey: ${JWT_REFRESH_KEY:tvszknimPZQEdy3c9TCERBLAkOyoCc2ZvOmGcHsRJgg=}
