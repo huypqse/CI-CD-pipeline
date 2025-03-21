@@ -5,62 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="730459d8-d409-4942-8213-3d1138e46743" name="Changes" comment="fix: merge code from master">
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ci-cd/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/BackendServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/common/Gender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/common/TokenType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/common/UserStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/common/UserType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/config/AppConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/config/AppConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/config/CustomizeRequestFilter$ErrorResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/config/CustomizeRequestFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/config/OpenApiConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/AuthenticationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/EmailController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/request/AddressRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/request/SignInRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/request/UserCreationRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/request/UserPasswordRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/request/UserUpdateRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/ApiResponse$ApiResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/ApiResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/PageResponseAbstract.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/TokenResponse$TokenResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/TokenResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/UserPageResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/UserResponse$UserResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/controller/response/UserResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/exception/ForBiddenException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/exception/GlobalExceptionHandling$ErrorResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/exception/GlobalExceptionHandling.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/exception/InvalidDataException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/exception/ResourceNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/AbstractEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/AddressEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/Group$GroupBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/Group.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/GroupHasUser$GroupHasUserBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/GroupHasUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/Permission.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/RoleHasPermission$RoleHasPermissionBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/RoleHasPermission.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/UserEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/UserHasRole$UserHasRoleBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/model/UserHasRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/repository/AddressRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/AuthenticationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/EmailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/JwtService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/UserServiceDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/impl/AuthenticationServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/impl/JwtServiceImpl$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/impl/JwtServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ci-cd/target/classes/vn/tayjava/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742564022956</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix: merge code from master">
+      <option name="closed" value="true" />
+      <created>1742564278741</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742564278741</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
