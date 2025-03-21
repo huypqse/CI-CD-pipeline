@@ -4,7 +4,87 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="730459d8-d409-4942-8213-3d1138e46743" name="Changes" comment="" />
+    <list default="true" id="730459d8-d409-4942-8213-3d1138e46743" name="Changes" comment="hi">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/CI-CD.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/BackendArchitecture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/grafana-dashboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/initdb.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/logstash.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/prometheus.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/BackendServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/common/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/common/TokenType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/common/UserStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/common/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/config/CustomizeRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/config/OpenApiConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/EmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/request/AddressRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/request/SignInRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/request/UserCreationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/request/UserPasswordRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/request/UserUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/response/PageResponseAbstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/response/TokenResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/response/UserPageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/controller/response/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/exception/ForBiddenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/exception/GlobalExceptionHandling.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/exception/InvalidDataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/AbstractEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/AddressEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/Group.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/GroupHasUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/RoleHasPermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/model/UserHasRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/repository/AddressRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/UserServiceDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/impl/JwtServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/java/vn/tayjava/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/test/java/vn/tayjava/BackendServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/test/java/vn/tayjava/controller/UserControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/test/java/vn/tayjava/service/JwtServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ci-cd/src/test/java/vn/tayjava/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +119,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.BackendServiceApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/CI-CD",
     "node.js.detected.package.eslint": "true",
@@ -108,5 +188,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hi" />
+    <option name="LAST_COMMIT_MESSAGE" value="hi" />
   </component>
 </project>
