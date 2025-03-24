@@ -1,8 +1,7 @@
 FROM openjdk:17
 
-ARG JAR_FILE=target/*.jar
-
-COPY ${JAR_FILE} backend-service.jar
+# Chỉ định file JAR cụ thể
+COPY ci-cd/target/backend-service.jar backend-service.jar
 
 ENTRYPOINT ["java", "-jar", "backend-service.jar"]
 
