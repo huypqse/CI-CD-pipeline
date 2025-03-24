@@ -28,7 +28,7 @@ services:
       - postgres:/data/postgres
       - ./initdb.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - '5431:5432'
+      - '5432:5432'
     networks:
       - default
 
@@ -40,8 +40,8 @@ services:
     ports:
       - "9090:9090"
     environment:
-      DATABASE_HOST: host.docker.internal
-      DATABASE_PORT: 5431
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
       DATABASE_USERNAME: sa
       DATABASE_PASSWORD: 12345
       LOGSTASH_HOST: host.docker.internal:5600
