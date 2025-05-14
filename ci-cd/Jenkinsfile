@@ -1,0 +1,98 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'MAVEN'
+    }
+
+    environment {
+        DB_HOST = 'aws-0-ap-southeast-1.pooler.supabase.com'
+        DB_PORT = '5432'
+        DB_NAME = 'postgres'
+
+        APP_NAME = "backend-service"
+        RELEASE = "1.0.0"
+        IMAGE_NAME = "huypqse/${APP_NAME}"
+        IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+    }
+
+    stages {
+        stage('Clean workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+
+        stage("Checkout from SCM") {
+            steps {
+                git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/huypqse/CI-CD-pipeline.git'
+            }
+        }
+
+        stage("Check Workspace") {
+            steps {
+                sh 'ls -la'
+            }
+        }
+
+        stage("Test Application") {
+            steps {
+                dir('ci-cd') {
+                    withCredentials([usernamePassword(credentialsId: 'database-credentials', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASS')]) {
+                        sh """
+                            mvn clean test \
+                            -Dspring.datasource.url=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME} \
+                            -Dspring.datasource.username=${DB_USER} \
+                            -Dspring.datasource.password=${DB_PASS}
+                        """
+                    }
+                }
+            }
+        }
+
+        stage("Build Application") {
+            steps {
+                dir('ci-cd') {
+                    withCredentials([usernamePassword(credentialsId: 'database-credentials', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASS')]) {
+                        sh """
+                            mvn clean package \
+                            -Dspring.datasource.url=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME} \
+                            -Dspring.datasource.username=${DB_USER} \
+                            -Dspring.datasource.password=${DB_PASS}
+                        """
+                    }
+                }
+            }
+        }
+
+        stage("Build & Push Docker Image") {
+            steps {
+                dir('ci-cd') {
+                    withCredentials([usernamePassword(credentialsId: 'Dockerhub1', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+
+                        // Build context là ci-cd nên Dockerfile và jar đều nằm đúng
+                        sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -f Dockerfile ."
+                        sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest"
+                        sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                        sh "docker push ${IMAGE_NAME}:latest"
+                        sh 'docker logout'
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "CI Pipeline execution completed"
+            deleteDir()
+        }
+        success {
+            echo "CI Pipeline executed successfully! Docker image has been built and pushed."
+        }
+        failure {
+            echo "CI Pipeline execution failed!"
+        }
+    }
+}
