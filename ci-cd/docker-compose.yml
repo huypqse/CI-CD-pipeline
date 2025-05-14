@@ -1,4 +1,68 @@
+version: '3.8'
+
 services:
+#  postgres:
+#    image: postgres
+#    container_name: postgres
+#    restart: unless-stopped
+#    environment:
+#      - POSTGRES_DB=postgres
+#      - POSTGRES_USER=sa
+#      - POSTGRES_PASSWORD=12345
+#    volumes:
+#      - postgres:/data/postgres
+#      - ./initdb.sql:/docker-entrypoint-initdb.d/init.sql
+#    ports:
+#      - '5432:5432'
+#    networks:
+#      - default
+
+  backend-service:
+    container_name: backend-service
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    environment:
+      DATABASE_HOST: aws-0-ap-southeast-1.pooler.supabase.com
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: postgres.bzbprccjybtnkpyqzouq
+      DATABASE_PASSWORD: Huypq2004Reset
+    #     LOGSTASH_HOST: host.docker.internal:5600
+    networks:
+      - default
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - backend-service
+    restart: unless-stopped
+    networks:
+      - default
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
+    ports:
+      - '7080:8080'
+      - '50000:50000'
+    networks:
+      - default
+    volumes:
+      - ~/jenkins-data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
+
+# Uncomment the following services when needed
+
 #  mysql:
 #    image: mysql:8.0
 #    container_name: mysql
@@ -15,94 +79,48 @@ services:
 #      - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
 #    networks:
 #      - default
-#
-  postgres:
-    image: postgres
-    container_name: postgres
-    restart: unless-stopped
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=sa
-      - POSTGRES_PASSWORD=12345
-    volumes:
-      - postgres:/data/postgres
-      - ./initdb.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - '5432:5432'
-    networks:
-      - default
 
-  backend-service:
-    container_name: backend-service
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    ports:
-      - "9090:9090"
-    environment:
-      DATABASE_HOST: postgres
-      DATABASE_PORT: 5432
-      DATABASE_USERNAME: sa
-      DATABASE_PASSWORD: 12345
-      LOGSTASH_HOST: host.docker.internal:5600
-    networks:
-      - default
+#  elastic-search:
+#    image: elasticsearch:7.14.1
+#    container_name: elasticsearch
+#    restart: always
+#    ports:
+#      - "9200:9200"
+#    environment:
+#      - discovery.type=single-node
+#    networks:
+#      - default
 
-  elastic-search:
-    image: elasticsearch:7.14.1
-    container_name: elasticsearch
-    restart: always
-    ports:
-      - "9200:9200"
-    environment:
-      - discovery.type=single-node
-    networks:
-      - default
+#  kibana:
+#    image: kibana:7.14.1
+#    container_name: kibana
+#    restart: always
+#    ports:
+#      - "5601:5601"
+#    environment:
+#      - ELASTICSEARCH_HOSTS=http://elastic-search:9200
+#    networks:
+#      - default
 
-  kibana:
-    image: kibana:7.14.1
-    container_name: kibana
-    restart: always
-    ports:
-      - "5601:5601"
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elastic-search:9200
-    networks:
-      - default
-  jenkins:
-    image: jenkins/jenkins:lts
-    privileged: true
-    user: root
-    ports:
-      - '7080:8080'
-      - '50000:50000'
-    container_name: jenkins
-    networks: # phải c
-      - default
-    volumes:
-      - ~/jenkins-data:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker:/usr/local/bin/docker
-  logstash:
-    image: logstash:7.14.1
-    container_name: logstash
-    restart: always
-    ports:
-      - "5600:5600" # Socket port
-      - "5044:5044"
-    #      - "9600:9600"
-    volumes:
-      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-    environment:
-      - XPACK_MONITORING_ELASTICSEARCH_HOSTS=http://elastic-search:9200
-      - XPACK_MONITORING_ENABLED=true
-    networks:
-      - default
+#  logstash:
+#    image: logstash:7.14.1
+#    container_name: logstash
+#    restart: always
+#    ports:
+#      - "5600:5600" # Socket port
+#      - "5044:5044"
+#    volumes:
+#      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+#    environment:
+#      - XPACK_MONITORING_ELASTICSEARCH_HOSTS=http://elastic-search:9200
+#      - XPACK_MONITORING_ENABLED=true
+#    networks:
+#      - default
 
 networks:
   default:
     name: backend-service
 
-volumes:
-  postgres:
+#volumes:
+#  postgres:
 #  mysql_data:

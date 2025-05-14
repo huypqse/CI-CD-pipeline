@@ -5,9 +5,9 @@ spring:
   devtools:
     add-properties: true
   datasource:
-    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/postgres
-    username: ${DATABASE_USERNAME:sa}
-    password: ${DATABASE_PASSWORD:12345}
+    url: jdbc:postgresql://${DATABASE_HOST:aws-0-ap-southeast-1.pooler.supabase.com}:${DATABASE_PORT:5432}/postgres
+    username: ${DATABASE_USERNAME:postgres.bzbprccjybtnkpyqzouq}
+    password: ${DATABASE_PASSWORD:Huypq2004Reset}
   jpa:
     properties:
       hibernate:
