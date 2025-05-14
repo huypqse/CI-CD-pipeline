@@ -71,7 +71,6 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'Dockerhub1', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                         sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 
-                        // Build context là ci-cd nên Dockerfile và jar đều nằm đúng
                         sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -f Dockerfile ."
                         sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest"
                         sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
@@ -81,18 +80,62 @@ pipeline {
                 }
             }
         }
+
+       stage('Deploy to AWS EC2') {
+    steps {
+        script {
+            withCredentials([
+                sshUserPrivateKey(credentialsId: 'aws-ec2-key', keyFileVariable: 'SSH_KEY'),
+                string(credentialsId: 'ec2-host', variable: 'EC2_HOST'),
+                string(credentialsId: 'ec2-user', variable: 'EC2_USER'),
+                usernamePassword(credentialsId: 'Dockerhub1', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS'),
+                usernamePassword(credentialsId: 'database-credentials', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
+            ]) {
+                echo "Starting deployment to EC2..."
+
+                sh """
+                ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${EC2_USER}@${EC2_HOST} << 'ENDSSH'
+                echo "Logging in to Docker Hub..."
+                echo "${DOCKER_PASS}" | sudo docker login -u "${DOCKER_USER}" --password-stdin
+
+                echo "Stopping and removing old container if exists..."
+                sudo docker stop ${APP_NAME} || true
+                sudo docker rm ${APP_NAME} || true
+
+                echo "Pulling new image: ${IMAGE_NAME}:${IMAGE_TAG}"
+                sudo docker pull ${IMAGE_NAME}:${IMAGE_TAG}
+
+                echo "Running new container..."
+                sudo docker run -d --name ${APP_NAME} \\
+                    -p 9090:9090 \\
+                    -e SPRING_DATASOURCE_URL=jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME} \\
+                    -e SPRING_DATASOURCE_USERNAME=${DB_USER} \\
+                    -e SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD} \\
+                    ${IMAGE_NAME}:${IMAGE_TAG}
+
+                echo "Cleaning up old images..."
+                sudo docker image prune -af --filter "until=24h"
+ENDSSH
+                """
+
+                echo "Application deployed successfully to EC2."
+            }
+        }
+    }
+}
+
     }
 
     post {
         always {
-            echo "CI Pipeline execution completed"
+            echo "CI/CD Pipeline execution completed"
             deleteDir()
         }
         success {
-            echo "CI Pipeline executed successfully! Docker image has been built and pushed."
+            echo "CI/CD Pipeline executed successfully!"
         }
         failure {
-            echo "CI Pipeline execution failed!"
+            echo "CI/CD Pipeline execution failed!"
         }
     }
 }
