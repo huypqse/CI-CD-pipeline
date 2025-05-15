@@ -13,10 +13,10 @@ Before using this pipeline, ensure the following are ready:
 * Jenkins is installed and configured.
 * Required Jenkins plugins are installed:
 
-    * Pipeline
-    * Docker Pipeline
-    * SSH Agent Plugin
-    * Git Plugin
+  * Pipeline
+  * Docker Pipeline
+  * SSH Agent Plugin
+  * Git Plugin
 * Docker Hub account.
 * EC2 instance (Linux) with Docker installed and port 9090 open.
 * Necessary credentials created in Jenkins.
@@ -134,7 +134,7 @@ docker build -t backend-service .
 
 ## Successful Deployment to EC2?
 
-Console log will show:
+ Console log will show:
 
 ```
 Application deployed successfully to EC2.
