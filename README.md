@@ -134,7 +134,7 @@ docker build -t backend-service .
 
 ## Successful Deployment to EC2?
 
-✅ Console log will show:
+ Console log will show:
 
 ```
 Application deployed successfully to EC2.
