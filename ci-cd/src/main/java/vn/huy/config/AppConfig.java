@@ -30,7 +30,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableMethodSecurity(prePostEnabled = true)
 public class AppConfig {
 
-    private final String[] whitelistedUrls = {"/auth/**", "/", "/hello"};
+    private final String[] whitelistedUrls = {"/auth/**", "/", "/user/hello"};
 
     private final CustomizeRequestFilter requestFilter;
     private final UserServiceDetail userServiceDetail;
