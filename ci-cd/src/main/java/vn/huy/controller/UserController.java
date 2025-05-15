@@ -130,4 +130,8 @@ public class UserController {
                 .data("")
                 .build();
     }
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello World";
+    }
 }
